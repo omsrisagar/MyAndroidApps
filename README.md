@@ -1,2 +1,4 @@
 # MyAndroidApps
-My Android Apps
+Hello world!
+
+I am Vidyasagar Sadhu. I'm just setting up git!
