@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\vsadhu\AndroidStudioProjects\simple_service\app\libs\alljoyn.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="48825f3dbc1dd71782f378752f72ce24a7efc225">
+        <dex dex="C:\Users\vsadhu\AndroidStudioProjects\simple_service\app\build\intermediates\pre-dexed\debug\alljoyn-0c403f363cb05fe0091bca4d3b9b9b7032a59760.jar" />
+    </item>
+
+</items>

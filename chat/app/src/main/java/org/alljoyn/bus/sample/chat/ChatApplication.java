@@ -24,6 +24,8 @@ import android.app.Application;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.util.Log;
+
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ArrayList;
@@ -398,12 +400,17 @@ public class ChatApplication extends Application implements Observable {
 		notifyObservers(USE_CHANNEL_STATE_CHANGED_EVENT);
 		notifyObservers(USE_JOIN_CHANNEL_EVENT);
 	}
+
+	public synchronized void useEcho() {
+		notifyObservers(USE_ECHO_EVENT);
+	}
 	
 	/**
 	 * The object we use in notifications to indicate that user has requested
 	 * that we join a channel in the "use" tab.
 	 */
 	public static final String USE_JOIN_CHANNEL_EVENT = "USE_JOIN_CHANNEL_EVENT";
+	public static final String USE_ECHO_EVENT = "USE_ECHO_EVENT";
 	
 	/**
 	 * This is the method that the "use" tab user interface calls when the 
@@ -797,6 +804,10 @@ public class ChatApplication extends Application implements Observable {
 	
 	public Hashtable<String, String> getHashtableDevice(){
 		return hashtableDevice;
+	}
+
+	public Enumeration<String> getUniqueNames () {
+		return hashtableDevice.keys();
 	}
 	
 	public String getArbitrator(){

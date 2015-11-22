@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\vsadhu\AndroidStudioProjects\client\app\libs\alljoyn.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ed6fba1c4d3c360e07f80fd54500612e982e646a">
+        <dex dex="C:\Users\vsadhu\AndroidStudioProjects\client\app\build\intermediates\pre-dexed\debug\alljoyn-1d72635808500016a8ab6926b9232879f2774d5d.jar" />
+    </item>
+    <item
+        jar="C:\Users\vsadhu\AndroidStudioProjects\client\app\libs\Jama-1.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e7b3b81770450a21b4295e27c2ccb802ab537e1">
+        <dex dex="C:\Users\vsadhu\AndroidStudioProjects\client\app\build\intermediates\pre-dexed\debug\Jama-1.0.3-d24f47514b7fbb534737188d89879acc4cb008fc.jar" />
+    </item>
+
+</items>

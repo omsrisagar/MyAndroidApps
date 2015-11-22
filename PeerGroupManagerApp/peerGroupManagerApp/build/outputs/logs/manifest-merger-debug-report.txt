@@ -1,0 +1,73 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:3:7
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		ADDED from AndroidManifest.xml:5:7
+	android:versionCode
+		ADDED from AndroidManifest.xml:4:7
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+uses-sdk
+ADDED from AndroidManifest.xml:7:5
+MERGED from PeerGroupManagerApp:peerGroupManager:unspecified:7:5
+	android:targetSdkVersion
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:7:15
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:10:5
+	android:name
+		ADDED from AndroidManifest.xml:10:22
+uses-permission#android.permission.CHANGE_WIFI_MULTICAST_STATE
+ADDED from AndroidManifest.xml:11:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#android.permission.BLUETOOTH
+ADDED from AndroidManifest.xml:13:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+supports-screens
+ADDED from AndroidManifest.xml:16:5
+	android:largeScreens
+		ADDED from AndroidManifest.xml:17:8
+	android:resizeable
+		ADDED from AndroidManifest.xml:18:8
+	android:anyDensity
+		ADDED from AndroidManifest.xml:19:8
+application
+ADDED from AndroidManifest.xml:21:5
+	android:label
+		ADDED from AndroidManifest.xml:21:48
+	android:icon
+		ADDED from AndroidManifest.xml:21:18
+activity#org.alljoyn.cops.peergroupmanagerapp.MainActivity
+ADDED from AndroidManifest.xml:22:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:24:19
+	android:label
+		ADDED from AndroidManifest.xml:23:19
+	android:name
+		ADDED from AndroidManifest.xml:22:19
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:25:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:26:17
+	android:name
+		ADDED from AndroidManifest.xml:26:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:27:17
+	android:name
+		ADDED from AndroidManifest.xml:27:27

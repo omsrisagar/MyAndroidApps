@@ -21,6 +21,7 @@ package org.alljoyn.bus.sample.chat;
 
 import org.alljoyn.bus.BusException;
 import org.alljoyn.bus.annotation.BusInterface;
+import org.alljoyn.bus.annotation.BusMethod;
 import org.alljoyn.bus.annotation.BusSignal;
 
 @BusInterface (name = "org.alljoyn.bus.samples.chat")
@@ -42,4 +43,7 @@ public interface ChatInterface {
     
     @BusSignal
     public void returnObjRecData(String str) throws BusException;
+
+    @BusMethod
+    public String Echo(String str) throws BusException;
 }

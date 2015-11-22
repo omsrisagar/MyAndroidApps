@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ksvd.ksvd">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ksvd/build/libs/ksvd.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

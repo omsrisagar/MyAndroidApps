@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PeerGroupManagerApp.iml" filepath="$PROJECT_DIR$/PeerGroupManagerApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/peerGroupManager/peerGroupManager.iml" filepath="$PROJECT_DIR$/peerGroupManager/peerGroupManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/peerGroupManagerApp/peerGroupManagerApp.iml" filepath="$PROJECT_DIR$/peerGroupManagerApp/peerGroupManagerApp.iml" />
+    </modules>
+  </component>
+</project>

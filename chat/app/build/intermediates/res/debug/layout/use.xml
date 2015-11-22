@@ -41,20 +41,20 @@
         
         <Button
             android:id="@+id/useJoin"        
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
     	    android:text="Join"
         />
         
         <Button
             android:id="@+id/useLeave"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
     	    android:text="Leave"
         />
      	 <Button
             android:id="@+id/serviceAdvertisement"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
     	    android:text="Advertisement"
    		 />
@@ -62,7 +62,7 @@
  		   android:id="@+id/button_image_select"
  		   android:layout_width="wrap_content"
 		   android:layout_height="wrap_content"
-  		  android:text="Select Image" /> 
+  		  android:text="Ping" />
     </LinearLayout>
     
     <EditText

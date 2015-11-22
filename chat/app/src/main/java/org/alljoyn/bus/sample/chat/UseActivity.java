@@ -151,9 +151,10 @@ public class UseActivity extends Activity implements Observer {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				
-				Intent imagePickIntent = new Intent(Intent.ACTION_PICK);
-				imagePickIntent.setType("image/*");
-				startActivityForResult(imagePickIntent, PICTURE_SELECTED);
+				/*Intent imagePickIntent = new Intent(Intent.ACTION_PICK);
+				imagePickIntent.setType("image*//*");
+				startActivityForResult(imagePickIntent, PICTURE_SELECTED);*/
+                mChatApplication.useEcho();
 				
 			}
 		});

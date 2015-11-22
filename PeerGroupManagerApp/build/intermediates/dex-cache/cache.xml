@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\vsadhu\AndroidStudioProjects\PeerGroupManagerApp\peerGroupManagerApp\build\intermediates\exploded-aar\PeerGroupManagerApp\peerGroupManager\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ad47b1e1571034d8000a1f2e1c92b53f1229092a">
+        <dex dex="C:\Users\vsadhu\AndroidStudioProjects\PeerGroupManagerApp\peerGroupManagerApp\build\intermediates\pre-dexed\debug\classes-43f446a2c1eccd6681d18778457b030aa086aa7e.jar" />
+    </item>
+    <item
+        jar="C:\Users\vsadhu\AndroidStudioProjects\PeerGroupManagerApp\peerGroupManagerApp\build\intermediates\exploded-aar\PeerGroupManagerApp\peerGroupManager\unspecified\jars\libs\alljoyn.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ed6fba1c4d3c360e07f80fd54500612e982e646a">
+        <dex dex="C:\Users\vsadhu\AndroidStudioProjects\PeerGroupManagerApp\peerGroupManagerApp\build\intermediates\pre-dexed\debug\alljoyn-f3d8e55ccdec7f229f03ef54dab2dff2d8ca549d.jar" />
+    </item>
+
+</items>

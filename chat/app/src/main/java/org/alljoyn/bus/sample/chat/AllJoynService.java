@@ -19,6 +19,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.StreamCorruptedException;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.alljoyn.bus.ProxyBusObject;
 import org.alljoyn.bus.sample.chat.ChatApplication;
 import org.alljoyn.bus.sample.chat.TabWidget;
 import org.alljoyn.bus.sample.chat.Observable;
@@ -189,7 +191,12 @@ public class AllJoynService extends Service implements Observer {
             Message message = mHandler.obtainMessage(HANDLE_USE_JOIN_CHANNEL_EVENT);
             mHandler.sendMessage(message);
         }
-        
+
+        if (qualifier.equals(ChatApplication.USE_ECHO_EVENT)) {
+            Message message = mHandler.obtainMessage(HANDLE_USE_ECHO_EVENT);
+            mHandler.sendMessage(message);
+        }
+
         if (qualifier.equals(ChatApplication.USE_LEAVE_CHANNEL_EVENT)) {
             Message message = mHandler.obtainMessage(HANDLE_USE_LEAVE_CHANNEL_EVENT);
             mHandler.sendMessage(message);
@@ -281,6 +288,12 @@ public class AllJoynService extends Service implements Observer {
 	                mBackgroundHandler.leaveSession();
 	            }
 	            break;
+            case HANDLE_USE_ECHO_EVENT:
+            {
+                Log.i(TAG, "mHandler.handleMessage(): USE_ECHO_EVENT");
+                mBackgroundHandler.callEcho();
+            }
+            break;
 	        case HANDLE_HOST_INIT_CHANNEL_EVENT:
 	            {
 	                Log.i(TAG, "mHandler.handleMessage(): HOST_INIT_CHANNEL_EVENT");
@@ -388,6 +401,8 @@ public class AllJoynService extends Service implements Observer {
     private static final int HANDLE_EXIT_SIMPLE_SERVICE = 10;
     
     private static final int HANDLE_OUTBOUND_OBJECT_RECOGNITION_DATA_SENT = 11;
+
+    private static final int HANDLE_USE_ECHO_EVENT = 12;
     
     /**
      * Enumeration of the states of the AllJoyn bus attachment.  This
@@ -622,6 +637,12 @@ public class AllJoynService extends Service implements Observer {
         	Message msg = mBackgroundHandler.obtainMessage(START_OBJ_DATA_SEND);
         	mBackgroundHandler.sendMessage(msg);
         }
+
+        public void callEcho() {
+            Log.i(TAG, "mBackgroundHandler.callEcho()");
+            Message msg = mBackgroundHandler.obtainMessage(CALL_ECHO);
+            mBackgroundHandler.sendMessage(msg);
+        }
                  
         /**
          * The message handler for the worker thread that handles background
@@ -683,6 +704,9 @@ public class AllJoynService extends Service implements Observer {
 	        case START_OBJ_DATA_SEND:
 	        	doSendObjRecognitionData();
 	        	break;
+            case CALL_ECHO:
+                doCallEcho();
+                break;
 	        case EXIT:
 	        	mChatApplication.getHashtable().clear();
 	        	mChatApplication.getDictionariesHashtable().clear();
@@ -713,6 +737,7 @@ public class AllJoynService extends Service implements Observer {
     private static final int START_IMAGE_SEND = 17;
     private static final int END_SS = 18;
     private static final int START_OBJ_DATA_SEND = 19;
+    private static final int CALL_ECHO = 20;
     /**
      * The instance of the AllJoyn background thread handler.  It is created
      * when Android decides the Service is needed and is called from the
@@ -880,7 +905,42 @@ public class AllJoynService extends Service implements Observer {
 		mBusAttachmentState = BusAttachmentState.DISCONNECTED;
     	return true;
     }
-    
+
+    private void doCallEcho(){
+        String peer;
+        ProxyBusObject mProxyObj;
+        ChatInterface mRemoteInterface;
+        Mutable.IntegerValue sessionId = new Mutable.IntegerValue();
+        sessionId.value = mUseSessionId;
+        //peer = mBus.getGlobalGUIDString();
+        if (mChatApplication.getUniqueNames().hasMoreElements()){
+            peer = mChatApplication.getUniqueNames().nextElement();
+            peer = ":" + peer;
+            mProxyObj =  mBus.getProxyBusObject(peer,
+                    "/chatService",
+                    sessionId.value,
+                    new Class<?>[]{ChatInterface.class});
+
+                	/* We make calls to the methods of the AllJoyn object through one of its interfaces. */
+            try {
+                mRemoteInterface = mProxyObj.getInterface(ChatInterface.class);
+                if (mRemoteInterface != null) {
+                    String ret = mRemoteInterface.Echo("Hello");
+                    //String ret = mSimpleInterface.Ping("Hello");
+                    Log.d(TAG, "Got this string from remote device" + ret);
+                }
+            }
+            catch (UndeclaredThrowableException ex){
+                Log.d(TAG, ex.toString());
+            }
+            catch (BusException ex) {
+                String exep = String.format("%s",ex);
+                Log.d(TAG, exep);
+            }
+
+        }
+
+    }
     /**
      * Implementation of the functionality related to discovering remote apps
      * which are hosting chat channels.  We expect that this method will only
@@ -1386,7 +1446,7 @@ public class AllJoynService extends Service implements Observer {
     
     
     
-    BusAttachment mBusSS;
+    BusAttachment mBusSS;//Why can't I use mBus itself even for this simple service?
     
     private void doStartArbitratorService(){
     	
@@ -1698,6 +1758,10 @@ public class AllJoynService extends Service implements Observer {
     	public void returnObjRecData(String str) throws BusException {
     		
     	}
+
+        public String Echo(String str) throws BusException {
+            return mBus.getUniqueName() + "," + str;
+        }
     }
     
 //------------------------------------------ Chat Service finish ---------------------------------------    

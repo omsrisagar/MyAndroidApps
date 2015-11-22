@@ -1,0 +1,14 @@
+<HTML>
+<HEAD>
+<TITLE>applet test</TITLE>
+</HEAD>
+<BODY>
+<P>
+This page requires Netscape 3.0 or higher on a Macintosh, 
+and Netscape 2.0 or higher on a Windows95 PC.
+</P>
+<APPLET code="bss.class" WIDTH=500 HEIGHT=500>
+</APPLET>
+</BODY>
+</HTML>
+
